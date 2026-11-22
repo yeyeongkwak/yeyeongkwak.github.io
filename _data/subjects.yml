@@ -1,0 +1,15 @@
+# Category title is the second entry in a post's `categories` list.
+- slug: hardware-test-automation
+  title: Hardware Test Automation
+- slug: embedded-c
+  title: Embedded C
+- slug: aws-saa
+  title: AWS SAA
+- slug: ai-editors
+  title: AI Editors
+- slug: debugging-with-ai
+  title: Debugging with AI
+- slug: github-automation
+  title: GitHub Automation
+- slug: portfolio
+  title: Portfolio
