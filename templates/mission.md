@@ -2,6 +2,8 @@
 layout: post
 title: "Short mission title"
 date: 2026-11-22
+# Subject title (second category): Hardware Test Automation, Embedded C, AWS SAA,
+# AI Editors, Debugging with AI, GitHub Automation, Portfolio, .NET
 categories: [Daily Dev Coding, Embedded C]
 tags:
   - tag

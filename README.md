@@ -18,7 +18,8 @@ There are no mission posts yet. The subject folders are empty on purpose.
 │   ├── ai-editors/
 │   ├── debugging-with-ai/
 │   ├── github-automation/
-│   └── portfolio/
+│   ├── portfolio/
+│   └── dotnet/
 ├── _tabs/                      # About, Categories, Tags, Archives
 ├── templates/mission.md
 └── .github/workflows/pages.yml
@@ -45,6 +46,7 @@ Chirpy shows a light / dark / system toggle when `theme_mode` is empty, and the 
    | `debugging-with-ai` | Debugging with AI |
    | `github-automation` | GitHub Automation |
    | `portfolio` | Portfolio |
+   | `dotnet` | .NET |
 
    Example path (do not create this file until the mission happened):
 
@@ -63,6 +65,8 @@ Chirpy shows a light / dark / system toggle when `theme_mode` is empty, and the 
 layout: post
 title: "Short mission title"
 date: 2026-11-22
+# Subject title (second category): Hardware Test Automation, Embedded C, AWS SAA,
+# AI Editors, Debugging with AI, GitHub Automation, Portfolio, .NET
 categories: [Daily Dev Coding, Embedded C]
 tags:
   - tag
