@@ -1,34 +1,110 @@
+theme: jekyll-theme-chirpy
+
+lang: en
+timezone: Australia/Adelaide
+
 title: "Yeyeong Kwak — Dev Log"
+tagline: Daily coding notes
 description: >-
   Dev log of Yeyeong Kwak, a Master of IT student in Adelaide.
   Daily coding notes on embedded software, hardware test automation, AWS, and AI tools.
+
 url: "https://yeyeongkwak.github.io"
 baseurl: ""
-lang: en
-timezone: Australia/Adelaide
-author: Yeyeong Kwak
 
-theme: minima
-permalink: pretty
+github:
+  username: yeyeongkwak
 
-github_username: yeyeongkwak
+twitter:
+  username:
 
-minima:
-  date_format: "%Y-%m-%d"
+social:
+  name: Yeyeong Kwak
+  links:
+    - https://github.com/yeyeongkwak
 
-header_pages:
-  - daily-dev-coding/index.md
-  - about.md
+# Empty follows the system color and shows the light / dark / system toggle.
+theme_mode:
 
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
+avatar:
+
+toc: true
+
+comments:
+  provider:
+
+assets:
+  self_host:
+    enabled: false
+
+pwa:
+  enabled: true
+  cache:
+    enabled: true
+
+paginate: 10
+
+kramdown:
+  footnote_backlink: "↩︎"
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: highlight
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
+
+collections:
+  tabs:
+    output: true
+    sort_by: order
 
 defaults:
   - scope:
-      path: "daily-dev-coding"
+      path: ""
+      type: posts
     values:
-      layout: mission
+      layout: post
+      comments: false
+      toc: true
+      permalink: /posts/:title/
+  - scope:
+      path: ""
+      type: tabs
+    values:
+      layout: page
+      permalink: /:title/
+
+sass:
+  style: compressed
+
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  profile: false
+  blanklines: false
+  ignore:
+    envs: [development]
+
+plugins:
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-archives
+  - jekyll-sitemap
+  - jekyll-include-cache
+
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  layouts:
+    category: category
+    tag: tag
+  permalinks:
+    tag: /tags/:name/
+    category: /categories/:name/
 
 exclude:
   - README.md

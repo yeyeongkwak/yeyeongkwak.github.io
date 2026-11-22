@@ -1,8 +1,8 @@
 ---
-layout: mission
+layout: post
 title: "Short mission title"
 date: 2026-11-22
-subject: embedded-c
+categories: [Daily Dev Coding, Embedded C]
 tags:
   - tag
 mission: "What the mission was, in one sentence."

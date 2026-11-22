@@ -1,70 +1,69 @@
 # Yeyeong Kwak — Dev Log
 
-Personal site for <https://yeyeongkwak.github.io>. It is a [Jekyll](https://jekyllrb.com/) site using the [minima](https://github.com/jekyll/minima) theme. GitHub Actions builds it and deploys to GitHub Pages.
+Personal site for <https://yeyeongkwak.github.io>. It uses the [Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy) Jekyll theme. GitHub Actions builds it and deploys to GitHub Pages.
 
-There are no mission posts yet. Subject pages stay empty until you add one.
+There are no mission posts yet. The subject folders are empty on purpose.
 
 ## Structure
 
 ```
 .
 ├── _config.yml
-├── _data/subjects.yml          # subject order, titles, and one-line summaries
-├── _layouts/                   # daily index, subject index, mission note
-├── assets/main.scss
-├── daily-dev-coding/
-│   ├── index.md                # all subjects, grouped
-│   ├── hardware-test-automation/index.md
-│   ├── embedded-c/index.md
-│   ├── aws-saa/index.md
-│   ├── ai-editors/index.md
-│   ├── debugging-with-ai/index.md
-│   ├── github-automation/index.md
-│   └── portfolio/index.md
-├── templates/mission.md        # copy this when adding a note
-├── index.md
-├── about.md
+├── _data/subjects.yml          # folder slug → category title
+├── _plugins/mission_sections.rb
+├── _posts/daily-dev-coding/
+│   ├── hardware-test-automation/
+│   ├── embedded-c/
+│   ├── aws-saa/
+│   ├── ai-editors/
+│   ├── debugging-with-ai/
+│   ├── github-automation/
+│   └── portfolio/
+├── _tabs/                      # About, Categories, Tags, Archives
+├── templates/mission.md
 └── .github/workflows/pages.yml
 ```
 
-Mission notes do not go in `_posts`. A note is any Markdown file in a subject folder other than `index.md`.
+Chirpy shows a light / dark / system toggle when `theme_mode` is empty, and the built-in search box. Categories and tags come from post front matter.
 
 ## Add a post
 
 1. Copy `templates/mission.md` to:
 
    ```
-   daily-dev-coding/<subject>/YYYY-MM-DD-short-slug.md
+   _posts/daily-dev-coding/<subject>/YYYY-MM-DD-short-slug.md
    ```
 
    `<subject>` is one of:
 
-   - `hardware-test-automation`
-   - `embedded-c`
-   - `aws-saa`
-   - `ai-editors`
-   - `debugging-with-ai`
-   - `github-automation`
-   - `portfolio`
+   | Folder | `categories` second entry |
+   | --- | --- |
+   | `hardware-test-automation` | Hardware Test Automation |
+   | `embedded-c` | Embedded C |
+   | `aws-saa` | AWS SAA |
+   | `ai-editors` | AI Editors |
+   | `debugging-with-ai` | Debugging with AI |
+   | `github-automation` | GitHub Automation |
+   | `portfolio` | Portfolio |
 
    Example path (do not create this file until the mission happened):
 
    ```
-   daily-dev-coding/embedded-c/2026-11-22-read-a-datasheet.md
+   _posts/daily-dev-coding/embedded-c/2026-11-22-read-a-datasheet.md
    ```
 
-2. Replace the front matter. `subject` must match the folder name. `date` is the mission day as `YYYY-MM-DD` (the sample date below is only a format example). The filename should start with that same date. Use lowercase hyphenated words after the date. Do not name the file `index.md`.
+2. Set `categories` to `[Daily Dev Coding, <Subject title>]` using the title from the table, not the folder slug. The filename must start with the mission date as `YYYY-MM-DD`, and `date` must be that same day. `2026-11-22` in the template is only a format example. Use a lowercase hyphenated slug after the date.
 
-3. Commit to `master`. The Pages workflow publishes the note. With `permalink: pretty`, the URL is `/daily-dev-coding/<subject>/<filename-without-md>/`.
+3. Commit to `master`. The note is listed on the home page, and on **Categories** under Daily Dev Coding, grouped by subject. Chirpy's post URL is `/posts/<title>/`.
 
 ### Front matter
 
 ```yaml
 ---
-layout: mission
+layout: post
 title: "Short mission title"
 date: 2026-11-22
-subject: embedded-c
+categories: [Daily Dev Coding, Embedded C]
 tags:
   - tag
 mission: "What the mission was, in one sentence."
@@ -81,9 +80,7 @@ next_step: |
 Optional longer notes in Markdown. Delete this paragraph if you do not need it.
 ```
 
-`layout` can be omitted because files under `daily-dev-coding/` default to `mission`, except the `index.md` listing pages. Keeping `layout: mission` in the file makes the note obvious. The page prints Mission, What I did, What I learned, AI prompt used, and Next step when those fields are non-empty. The same file is listed on the subject page and on the Daily Dev Coding index.
-
-To add a new subject later, add a row in `_data/subjects.yml` and a `daily-dev-coding/<slug>/index.md` that uses `layout: subject` and `subject: <slug>`.
+The post page prints Mission, What I did, What I learned, AI prompt used, and Next step when those fields are non-empty. Anything after the front matter is extra notes.
 
 ## Local build
 
@@ -97,10 +94,10 @@ Then open <http://127.0.0.1:4000/>.
 
 ## GitHub Pages
 
-The workflow `.github/workflows/pages.yml` builds the site with `bundle exec jekyll build` and deploys the `_site` artifact. Deploy runs only for the `master` branch. Pull requests build only.
+`.github/workflows/pages.yml` builds with Ruby 3.2 and deploys the site. Deploy runs for `master` only.
 
-You must turn Pages on once, by hand:
+Turn Pages on once, by hand:
 
 **Settings → Pages → Build and deployment → Source: GitHub Actions**
 
-Until that source is selected, the site does not go live. If the first Actions run failed before Pages was enabled, use **Re-run jobs** after saving the setting. The public URL is <https://yeyeongkwak.github.io/>.
+Until that source is selected, the site does not go live. The public URL is <https://yeyeongkwak.github.io/>.

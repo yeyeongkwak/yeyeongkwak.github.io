@@ -1,21 +1,15 @@
+# Category title is the second entry in a post's `categories` list.
 - slug: hardware-test-automation
   title: Hardware Test Automation
-  summary: Notes on automated hardware tests.
 - slug: embedded-c
   title: Embedded C
-  summary: Notes on C and embedded software, including ESP32.
 - slug: aws-saa
   title: AWS SAA
-  summary: Notes while studying for AWS Solutions Architect Associate.
 - slug: ai-editors
   title: AI Editors
-  summary: Notes on working in AI coding editors.
 - slug: debugging-with-ai
   title: Debugging with AI
-  summary: Notes on debugging with AI tools.
 - slug: github-automation
   title: GitHub Automation
-  summary: Notes on GitHub Actions and repository automation.
 - slug: portfolio
   title: Portfolio
-  summary: Notes on portfolio work.
