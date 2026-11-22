@@ -1,0 +1,39 @@
+title: "Yeyeong Kwak — Dev Log"
+description: >-
+  Dev log of Yeyeong Kwak, a Master of IT student in Adelaide.
+  Daily coding notes on embedded software, hardware test automation, AWS, and AI tools.
+url: "https://yeyeongkwak.github.io"
+baseurl: ""
+lang: en
+timezone: Australia/Adelaide
+author: Yeyeong Kwak
+
+theme: minima
+permalink: pretty
+
+github_username: yeyeongkwak
+
+minima:
+  date_format: "%Y-%m-%d"
+
+header_pages:
+  - daily-dev-coding/index.md
+  - about.md
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+defaults:
+  - scope:
+      path: "daily-dev-coding"
+    values:
+      layout: mission
+
+exclude:
+  - README.md
+  - templates/
+  - vendor/
+  - .bundle/
+  - Gemfile
+  - Gemfile.lock
